@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     // TODO: Create the base URL
     private final String BASE_URL = "https://apiv2.bitcoin ...";
 
+    final String API_KEY = BuildConfig.BITCOIN_AVERAGE_API_KEY;
+
     // Member Variables:
     TextView mPriceTextView;
 

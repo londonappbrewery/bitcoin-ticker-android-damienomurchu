@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
     compileSdkVersion 27
     buildToolsVersion '27.0.2'
@@ -11,6 +15,10 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    buildTypes.each {
+        it.buildConfigField 'String', 'BITCOIN_AVERAGE_API_KEY', keystoreProperties['BitCoinAverageApiKey']
+    }
+
     buildTypes {
         release {
             minifyEnabled false
